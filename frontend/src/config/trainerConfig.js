@@ -1,47 +1,109 @@
 const trainerConfig = {
-  slug: "juan-perez",              // debe coincidir con el `slug` en la BD
+  slug: "roger-bolivar",
   apiKey: import.meta.env.VITE_TRAINER_API_KEY,
 
-  nombre: "Juan Pérez",
-  tagline: "Entrenamiento y nutrición personalizada",
-  whatsapp: "573000000000",        // sin '+' ni espacios, formato que usa wa.me
+  nombre: "IamRogerBolivar",
+  whatsapp: "573026036066",
+  appStoreUrl: "https://apps.apple.com/app/fittrack-app/id6783998522",
+
+  logoUrl: "/images/home/logo1.png",
 
   colores: {
-    primario: "#E10600",   // rojo, como en MTZ Proyect
-    fondo: "#F5F0EA",
-    texto: "#1A1A1A",
+    primario: "#0D0D0D",
+    secundario: "#4A4A4A",
+    fondo: "#F5F5F5",
+    texto: "#141414",
+  },
+
+  home: {
+    titulo: "¿QUÉ DESEAS VER?",
+    tarjetas: [
+      {
+        id: "asesorias",
+        titulo: "Asesorías",
+        subtitulo: "Entrenamiento y nutrición personalizada",
+        scrollTo: "planes",
+        imagen: "/images/home/ase.png",
+      },
+      {
+        id: "productos",
+        titulo: "Productos",
+        subtitulo: "Conoce lo que tengo para ti",
+        scrollTo: "productos",
+        imagen: "/images/home/suplementos-gym.png",
+      },
+    ],
   },
 
   planes: [
     {
-      id: "inicial",
-      nombre: "Plan Inicial",
-      precioCOP: 100000,
-      precioUSD: 31,
-      descripcion: "Asesoría única",
-      incluye: ["Entrenamiento personalizado", "Soporte nutricional"],
-      noIncluye: ["Seguimiento vía WhatsApp", "Videollamadas privadas"],
+      id: "smart",
+      nombre: "Plan Smart",
+      precioCOP: 150000,
+      descripcion: "Asesoría",
+      incluye: ["Asesoría personalizada", "Acesso a FitTrack"],
     },
     {
-      id: "mensual",
-      nombre: "Plan Mensual",
-      precioCOP: 200000,
-      precioUSD: 62,
+      id: "black",
+      nombre: "Plan Black",
+      precioCOP: 300000,
       destacado: true,
-      descripcion: "Seguimiento continuo",
+      descripcion: "Entrenamiento guiado",
       incluye: [
-        "Entrenamiento personalizado",
-        "Soporte nutricional",
-        "Seguimiento vía WhatsApp",
+        "Entrenamiento presencial o virtual personalizado",
+        "Acesso a FitTrack",
       ],
-      noIncluye: ["Videollamadas privadas"],
+    },
+    {
+      id: "deluxe",
+      nombre: "Plan Deluxe",
+      precioCOP: 400000,
+      descripcion: "La experiencia completa",
+      incluye: [
+        "Entrenamiento presencial o virtual personalizado",
+        "Acesso a FitTrack",
+        "Soporte nutricional",
+      ],
     },
   ],
 
-  reglas: [
-    "No trabajo con dietas restrictivas o extremas.",
-    "No trabajo con prohibiciones de ningún alimento. Solo se informa y se aconseja lo más favorable, quedando la decisión en uno mismo.",
-    "Vamos a registrar tu progreso cada 10 días, pero me puedes escribir a cualquier hora del día por alguna duda.",
+  formularioReserva: [
+    { id: "plan_seleccionado", label: "Plan seleccionado", tipo: "readonly" },
+    { id: "nombre_completo", label: "Nombre completo", tipo: "text" },
+    { id: "whatsapp", label: "Número de WhatsApp", tipo: "tel" },
+    { id: "peso_kg", label: "Peso (kg)", tipo: "number" },
+    { id: "edad", label: "Edad", tipo: "number" },
+    { id: "estatura_cm", label: "Altura (cm)", tipo: "number" },
+    { id: "objetivo", label: "¿Qué objetivo tienes?", tipo: "text" },
+    {
+      id: "entrena_en",
+      label: "¿Entrenas en casa o gimnasio?",
+      tipo: "select",
+      opciones: ["Casa", "Gimnasio"],
+    },
+    { id: "frecuencia_semanal", label: "Frecuencia semanal", tipo: "number" },
+  ],
+
+  testimonios: [
+    {
+      antes: "/images/testimonios/cliente1-antes.png",
+      despues: "/images/testimonios/cliente1-despues.png",
+    },
+  ],
+
+  productos: [
+    {
+      id: "proteina",
+      nombre: "Proteína",
+      descripcion: "Whey protein para tu recuperación muscular",
+      imagen: "/images/products/pexels-itslauravillela-31555272.jpg",
+    },
+    {
+      id: "creatina",
+      nombre: "Creatina",
+      descripcion: "Creatina monohidratada para fuerza y rendimiento",
+      imagen: "/images/products/Legacy.png",
+    },
   ],
 };
 
