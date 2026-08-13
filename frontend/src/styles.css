@@ -11,10 +11,14 @@
   --font-mono: "IBM Plex Mono", monospace;
 }
 
+html, body {
+  background: #F5F0EA;
+  color-scheme: light;
+}
+
 body {
   font-family: var(--font-body);
   color: var(--color-texto);
-  background: var(--color-fondo);
 }
 
 .app {
