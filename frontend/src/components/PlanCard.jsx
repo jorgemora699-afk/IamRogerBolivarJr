@@ -1,6 +1,10 @@
 function PlanCard({ plan, onElegir }) {
   return (
-    <div className={`plan-card ${plan.destacado ? "plan-card--destacado" : ""}`}>
+    <div
+      className={`plan-card ${
+        plan.destacado ? "plan-card--destacado" : ""
+      } ${plan.color ? `plan-card--${plan.color}` : ""}`}
+    >
       {plan.destacado && <span className="plan-card__badge">★ Más popular</span>}
 
       <p className="plan-card__nombre">{plan.nombre}</p>
