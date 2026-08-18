@@ -2,7 +2,7 @@ const trainerConfig = {
   slug: "roger-bolivar",
   apiKey: import.meta.env.VITE_TRAINER_API_KEY,
 
-  nombre: "IamRogerBolivar",
+  nombre: "IamRogerBolivarJr",
   whatsapp: "573026036066",
   appStoreUrl: "https://apps.apple.com/app/fittrack-app/id6783998522",
 
@@ -38,14 +38,15 @@ const trainerConfig = {
   planes: [
     {
       id: "smart",
-      nombre: "Plan Smart",
-      precioCOP: 150000,
+      nombre: "Plan Junior",
+      precioCOP: 200000,
       descripcion: "Asesoría",
+      color: "gris",
       incluye: ["Asesoría personalizada", "Acesso a FitTrack"],
     },
     {
       id: "black",
-      nombre: "Plan Black",
+      nombre: "Plan Premium",
       precioCOP: 300000,
       destacado: true,
       descripcion: "Entrenamiento guiado",
@@ -59,6 +60,7 @@ const trainerConfig = {
       nombre: "Plan Deluxe",
       precioCOP: 400000,
       descripcion: "La experiencia completa",
+      color: "dorado",
       incluye: [
         "Entrenamiento presencial o virtual personalizado",
         "Acesso a FitTrack",
