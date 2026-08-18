@@ -350,25 +350,40 @@ body {
       rgba(128, 128, 128, 0.08) 70%,
       transparent 70%
     ),
-    #eeeeee;
+    #cfcfcf;
 
-  border-color: #808080;
-  box-shadow: 0 8px 24px rgba(128, 128, 128, 0.25);
+  border-color: #000000;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+.plan-card--gris .plan-card__nombre,
+.plan-card--gris .plan-card__descripcion {
+  color: #000000;
+  opacity: 1;
 }
 
 .plan-card--gris .plan-card__check {
-  background: #808080;
+  background: #000000;
   color: #fff;
 }
 
 .plan-card--gris .plan-card__boton {
-  border-color: #808080;
-  color: #555;
+  border-color: #838383;
+  color: #ffffff;
+  background: #000000;
 }
 
 .plan-card--gris .plan-card__boton:active {
   background: #808080;
   color: #fff;
+}
+
+.plan-card--gris .plan-card__precio{
+  color: #252525;
+}
+
+.plan-card--gris .plan-card__item {
+  border-bottom: 1px dashed rgba(58, 58, 58, 0.35);
 }
 
 
@@ -378,29 +393,43 @@ body {
     linear-gradient(
       105deg,
       transparent 62%,
-      rgba(201, 162, 39, 0.10) 62%,
-      rgba(201, 162, 39, 0.10) 70%,
-      transparent 70%
+      rgba(90, 62, 0, 0.35) 62%,  
+      rgba(90, 62, 0, 0.35) 70%,
+      transparent 70%              
     ),
-    #fffdf5;
+    #C9A227;
 
-  border-color: #C9A227;
-  box-shadow: 0 8px 28px rgba(201, 162, 39, 0.30);
+  border-color: #000000;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.3);
 }
 
 .plan-card--dorado .plan-card__check {
-  background: #C9A227;
-  color: #0d0d0d;
+  background: #000000;
+  color: #ffffff;
+}
+
+.plan-card--dorado .plan-card__nombre,
+.plan-card--dorado .plan-card__precio,
+.plan-card--dorado .plan-card__moneda,
+.plan-card--dorado .plan-card__descripcion,
+.plan-card--dorado .plan-card__item {
+  color: #000000;
+  opacity: 1;
 }
 
 .plan-card--dorado .plan-card__boton {
-  border-color: #C9A227;
-  color: #8a6d00;
+  border-color: #000000;
+  color: #ffffff;
+  background: #000000;
 }
 
 .plan-card--dorado .plan-card__boton:active {
-  background: #C9A227;
-  color: #0d0d0d;
+  background: #000000;
+  color: #ffffff;   
+}
+
+.plan-card--dorado .plan-card__item {
+  border-bottom: 1px dashed rgba(0, 0, 0, 0.35);
 }
 
 .plan-card__badge {
@@ -568,6 +597,9 @@ body {
   object-fit: cover;
   filter: blur(20px) brightness(0.85);
   transform: scale(1.1);
+}
+.producto-card--clickeable {
+  cursor: pointer;
 }
 
 .producto-card__imagen {

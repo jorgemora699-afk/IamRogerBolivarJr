@@ -94,17 +94,22 @@ const trainerConfig = {
   ],
 
   productos: [
+  ],
+
+  categoriasSuplementos: [
     {
-      id: "proteina",
-      nombre: "Proteína",
-      descripcion: "Whey protein para tu recuperación muscular",
-      imagen: "/images/products/pexels-itslauravillela-31555272.jpg",
+      id: "masa-muscular",
+      nombre: "Aumento de masa muscular",
+      descripcion: "Suplementos para ganar músculo y fuerza",
+      imagen: "/images/products/aumento.png",
+      mensajeInteres: "aumento de masa muscular",
     },
     {
-      id: "creatina",
-      nombre: "Creatina",
-      descripcion: "Creatina monohidratada para fuerza y rendimiento",
-      imagen: "/images/products/Legacy.png",
+      id: "adelgazar",
+      nombre: "Pérdida de grasa",
+      descripcion: "Suplementos para pérdida de grasa",
+      imagen: "/images/products/quemar.png",
+      mensajeInteres: "pérdida de grasa / adelgazar",
     },
   ],
 };

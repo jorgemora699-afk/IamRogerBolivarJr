@@ -4,6 +4,8 @@ import trainerConfig from "./config/trainerConfig";
 import PlanCard from "./components/PlanCard";
 import ProductoCard from "./components/ProductoCard";
 import "./styles.css";
+import CategoriaSuplementoCard from "./components/CategoriaSuplementoCard";
+import SuplementoConfirmModal from "./components/SuplementoConfirmModal";
 
 function scrollToSection(id, closeMenu) {
   document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
@@ -13,6 +15,7 @@ function scrollToSection(id, closeMenu) {
 function App() {
   const [menuAbierto, setMenuAbierto] = useState(false);
   const [planSeleccionado, setPlanSeleccionado] = useState(null);
+  const [categoriaSeleccionada, setCategoriaSeleccionada] = useState(null);
 
   const cssVars = {
     "--color-primario": trainerConfig.colores.primario,
@@ -105,6 +108,13 @@ function App() {
         <p className="seccion-eyebrow">— PRODUCTOS</p>
         <h2 className="seccion-titulo">Suplementos</h2>
         <div className="productos">
+          {trainerConfig.categoriasSuplementos.map((categoria) => (
+            <CategoriaSuplementoCard
+              key={categoria.id}
+              categoria={categoria}
+              onClick={setCategoriaSeleccionada}
+            />
+          ))}
           {trainerConfig.productos.map((producto) => (
             <ProductoCard key={producto.id} producto={producto} />
           ))}
@@ -164,6 +174,13 @@ function App() {
 
       {planSeleccionado && (
         <ReservaModal plan={planSeleccionado} onClose={() => setPlanSeleccionado(null)} />
+      )}
+
+      {categoriaSeleccionada && (
+        <SuplementoConfirmModal
+          categoria={categoriaSeleccionada}
+          onClose={() => setCategoriaSeleccionada(null)}
+        />
       )}
     </div>
   );
