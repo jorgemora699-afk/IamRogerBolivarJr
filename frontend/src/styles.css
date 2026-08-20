@@ -356,11 +356,16 @@ body {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
 }
 
+
 .plan-card--gris .plan-card__nombre,
-.plan-card--gris .plan-card__descripcion {
+.plan-card--gris .plan-card__precio,
+.plan-card--gris .plan-card__moneda,
+.plan-card--gris .plan-card__descripcion,
+.plan-card--gris .plan-card__item {
   color: #000000;
   opacity: 1;
 }
+
 
 .plan-card--gris .plan-card__check {
   background: #000000;
