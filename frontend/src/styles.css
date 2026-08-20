@@ -360,8 +360,7 @@ body {
 .plan-card--gris .plan-card__nombre,
 .plan-card--gris .plan-card__precio,
 .plan-card--gris .plan-card__moneda,
-.plan-card--gris .plan-card__descripcion,
-.plan-card--gris .plan-card__item {
+.plan-card--gris .plan-card__descripcion{
   color: #000000;
   opacity: 1;
 }
@@ -388,6 +387,7 @@ body {
 }
 
 .plan-card--gris .plan-card__item {
+  color: #252525;
   border-bottom: 1px dashed rgba(58, 58, 58, 0.35);
 }
 
