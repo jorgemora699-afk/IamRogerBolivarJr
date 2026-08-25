@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ReservaModal from "./components/ReservaModal";
 import trainerConfig from "./config/trainerConfig";
 import PlanCard from "./components/PlanCard";
@@ -6,16 +6,27 @@ import ProductoCard from "./components/ProductoCard";
 import "./styles.css";
 import CategoriaSuplementoCard from "./components/CategoriaSuplementoCard";
 import SuplementoConfirmModal from "./components/SuplementoConfirmModal";
+import HomeTarjeta from "./components/HomeTarjeta";
+import TestimonioFotos from "./components/TestimonioFotos";
+import WhatsAppFlotante from "./components/WhatsAppFlotante";
 
 function scrollToSection(id, closeMenu) {
   document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   closeMenu();
 }
 
+
 function App() {
   const [menuAbierto, setMenuAbierto] = useState(false);
   const [planSeleccionado, setPlanSeleccionado] = useState(null);
   const [categoriaSeleccionada, setCategoriaSeleccionada] = useState(null);
+  const [scrolleado, setScrolleado] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setScrolleado(window.scrollY > 12);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const cssVars = {
     "--color-primario": trainerConfig.colores.primario,
@@ -29,7 +40,17 @@ function App() {
 
   return (
     <div className="app" style={cssVars}>
-      <header className="header">
+      <header className={`header ${scrolleado ? "header--scrolleado" : ""}`}>
+        <button
+          className={`menu-boton ${menuAbierto ? "menu-boton--activo" : ""}`}
+          onClick={() => setMenuAbierto((v) => !v)}
+          aria-label="Abrir menú"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
         <div className="marca">
           {trainerConfig.logoUrl ? (
             <img
@@ -42,13 +63,6 @@ function App() {
           )}
           <span className="marca-nombre">{trainerConfig.nombre}</span>
         </div>
-        <button
-          className="menu-boton"
-          onClick={() => setMenuAbierto((v) => !v)}
-          aria-label="Abrir menú"
-        >
-          ☰
-        </button>
 
         {menuAbierto && (
           <>
@@ -66,60 +80,63 @@ function App() {
             </nav>
           </>
         )}
+        
       </header>
 
       {/* Home */}
       <section id="home" className="home">
         <p className="home-label">ENTRENADOR PERSONAL — MEDELLÍN</p>
         <h2 className="home-titulo">
-          <span className="home-titulo__leve">¿Qué</span>
-          <span className="home-titulo__fuerte">deseas ver?</span>
+          <span className="home-titulo__leve">
+            <span className="home-word">¿Qué</span>
+          </span>
+          <span className="home-titulo__fuerte">
+            <span className="home-word">deseas</span>{" "}
+            <span className="home-word">ver?</span>
+          </span>
         </h2>
 
          <div className="home-tarjetas">
-          {trainerConfig.home.tarjetas.map((tarjeta) => (
-            <button
+          {trainerConfig.home.tarjetas.map((tarjeta, i) => (
+            <HomeTarjeta
               key={tarjeta.id}
-              className="home-tarjeta"
-              style={{ backgroundImage: `url(${tarjeta.imagen})` }}
+              tarjeta={tarjeta}
+              index={i}
               onClick={() => scrollToSection(tarjeta.scrollTo, cerrarMenu)}
-            >
-              <span className="home-tarjeta__overlay" />
-              <span className="home-tarjeta__titulo">{tarjeta.titulo}</span>
-              <span className="home-tarjeta__subtitulo">{tarjeta.subtitulo}</span>
-            </button>
+            />
           ))}
         </div>
       </section>
 
       {/* Planes */}
-      <section id="planes" className="planes-seccion">
-        <p className="seccion-eyebrow">— PLANES</p>
-        <h2 className="seccion-titulo">Elige tu plan</h2>
-        <div className="planes">
-          {trainerConfig.planes.map((plan) => (
-            <PlanCard key={plan.id} plan={plan} onElegir={setPlanSeleccionado} />
-          ))}
-        </div>
-      </section>
+        <section id="planes" className="planes-seccion">
+          <p className="seccion-eyebrow">— PLANES</p>
+          <h2 className="seccion-titulo">Elige tu plan</h2>
+          <div className="planes">
+            {trainerConfig.planes.map((plan, i) => (
+              <PlanCard key={plan.id} plan={plan} index={i} onElegir={setPlanSeleccionado} />
+            ))}
+          </div>
+        </section>
 
-      {/* Productos */}
-      <section id="productos" className="productos-seccion">
-        <p className="seccion-eyebrow">— PRODUCTOS</p>
-        <h2 className="seccion-titulo">Suplementos</h2>
-        <div className="productos">
-          {trainerConfig.categoriasSuplementos.map((categoria) => (
-            <CategoriaSuplementoCard
-              key={categoria.id}
-              categoria={categoria}
-              onClick={setCategoriaSeleccionada}
-            />
-          ))}
-          {trainerConfig.productos.map((producto) => (
-            <ProductoCard key={producto.id} producto={producto} />
-          ))}
-        </div>
-      </section>
+        {/* Productos */}
+        <section id="productos" className="productos-seccion">
+          <p className="seccion-eyebrow">— PRODUCTOS</p>
+          <h2 className="seccion-titulo">Suplementos</h2>
+          <div className="productos">
+            {trainerConfig.categoriasSuplementos.map((categoria, i) => (
+              <CategoriaSuplementoCard
+                key={categoria.id}
+                categoria={categoria}
+                index={i}
+                onClick={setCategoriaSeleccionada}
+              />
+            ))}
+            {trainerConfig.productos.map((producto, i) => (
+              <ProductoCard key={producto.id} producto={producto} index={i} />
+            ))}
+          </div>
+        </section>
 
       {/* Testimonios */}
         <section id="testimonios" className="testimonios-seccion">
@@ -136,10 +153,7 @@ function App() {
           ) : (
             <div className="testimonios">
               {trainerConfig.testimonios.map((t, i) => (
-                <div key={i} className="testimonio-fotos">
-                  <img className="testimonio-foto" src={t.antes} alt="Antes" />
-                  <img className="testimonio-foto" src={t.despues} alt="Después" />
-                </div>
+                <TestimonioFotos key={i} antes={t.antes} despues={t.despues} index={i} />
               ))}
             </div>
           )}
@@ -182,6 +196,8 @@ function App() {
           onClose={() => setCategoriaSeleccionada(null)}
         />
       )}
+
+      <WhatsAppFlotante />
     </div>
   );
 }
