@@ -38,13 +38,13 @@
 }
 
 .site-footer__lema {
-  max-width: 34ch;
   font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.18em;
   line-height: 1.6;
   text-transform: uppercase;
   color: var(--gris-300);
+  white-space: nowrap;
 }
 
 /* ---------- Instagram y correo ---------- */
@@ -128,6 +128,10 @@
   .site-footer__contacto-texto {
     font-size: 0.8rem;
   }
+  .site-footer__lema {
+    font-size: 0.64rem;
+    letter-spacing: 0.1em;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -136,3 +140,4 @@
     transition: none;
   }
 }
+

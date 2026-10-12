@@ -143,7 +143,8 @@ function ReservaModal({ plan, onClose }) {
               />
             </label>
 
-            <label className="campo">
+            {/* div (no label): si fuera label, tocar el texto marcaba "Casa" sin querer */}
+            <div className="campo" role="group" aria-label="¿Entrenas en casa o gimnasio?">
               <span>¿Entrenas en casa o gimnasio?</span>
               <div className="pill-group">
                 {opcionesEntreno.map((op) => (
@@ -157,7 +158,7 @@ function ReservaModal({ plan, onClose }) {
                   </button>
                 ))}
               </div>
-            </label>
+            </div>
 
             <label className="campo">
               <span>Frecuencia semanal</span>

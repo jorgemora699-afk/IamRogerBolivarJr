@@ -3,6 +3,7 @@ import ReservaModal from "./components/ReservaModal";
 import trainerConfig from "./config/trainerConfig";
 import "./styles.css";
 import "./base.css"; // siempre después de styles.css
+import "./modales.css"; // modales oscuros, siempre después de styles.css y base.css
 import SuplementoConfirmModal from "./components/SuplementoConfirmModal";
 import WhatsAppFlotante from "./components/WhatsAppFlotante";
 import Header from "./components/Header";
