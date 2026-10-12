@@ -68,7 +68,11 @@ const trainerConfig = {
       precioCOP: 200000,
       descripcion: "Asesoría",
       color: "gris",
-      incluye: ["Asesoría personalizada", "Acesso a FitTrack"],
+      incluye: [
+        "Plan de entrenamiento",
+        "Guía nutricional básica", 
+        "Acesso a FitTrack"
+      ],
     },
     {
       id: "black",
@@ -77,8 +81,11 @@ const trainerConfig = {
       destacado: true,
       descripcion: "Entrenamiento guiado",
       incluye: [
-        "Entrenamiento presencial o virtual personalizado",
+        "Plan de entrenamiento",
+        "Guía de alimentación personalizada",
         "Acesso a FitTrack",
+        "Seguimiento semanal",
+        "Asesoria por WhatsApp",
       ],
     },
     {
@@ -88,9 +95,11 @@ const trainerConfig = {
       descripcion: "La experiencia completa",
       color: "dorado",
       incluye: [
-        "Entrenamiento presencial o virtual personalizado",
+        "Plan de entrenamiento avanzado",
+        "Guía de alimentación personalizada",
         "Acesso a FitTrack",
-        "Soporte nutricional",
+        "Seguimiento diario",
+        "Asesoria Prioritaria",
       ],
     },
   ],

@@ -5,7 +5,7 @@ import "../planes.css";
 
 // Valores por defecto; se pueden cambiar con trainerConfig.seccionPlanes
 const TEXTOS = {
-  eyebrow: "Mis paquetes",
+  eyebrow: "Mis Planes",
   titulo: "Elige el plan que",
   tituloAcento: "se adapte a ti",
   texto:

@@ -77,7 +77,7 @@ function Footer() {
 
       <div className="site-footer__legal">
         <p>
-          © {new Date().getFullYear()} {nombre}. Todos los derechos reservados.
+          © {new Date().getFullYear()} iamrogerbolivarjr. Todos los derechos reservados.
         </p>
       </div>
     </footer>

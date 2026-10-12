@@ -618,3 +618,8 @@ body,
   text-align: left;
   background: var(--negro);
 }
+
+/* Botones del hero centrados */
+.hero__acciones {
+  justify-content: center;
+}

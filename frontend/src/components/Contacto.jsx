@@ -72,6 +72,21 @@ function Contacto() {
           }`}
           style={{ transitionDelay: "0.12s" }}
         >
+          {appStoreUrl && (
+            <a
+              className="contacto__card contacto__card--app"
+              href={appStoreUrl}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <span className="contacto__card-icono">{IconoApp}</span>
+              <span className="contacto__card-textos">
+                <span className="contacto__card-label">App FitTrack</span>
+                <span className="contacto__card-valor">Descarga la App</span>
+              </span>
+              <span className="contacto__card-flecha">{IconoFlecha}</span>
+            </a>
+          )}  
           <a
             className="contacto__card contacto__card--wa"
             href={`https://wa.me/${whatsapp}`}
@@ -88,21 +103,6 @@ function Contacto() {
             <span className="contacto__card-flecha">{IconoFlecha}</span>
           </a>
 
-          {appStoreUrl && (
-            <a
-              className="contacto__card contacto__card--app"
-              href={appStoreUrl}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <span className="contacto__card-icono">{IconoApp}</span>
-              <span className="contacto__card-textos">
-                <span className="contacto__card-label">App FitTrack</span>
-                <span className="contacto__card-valor">Descarga la App</span>
-              </span>
-              <span className="contacto__card-flecha">{IconoFlecha}</span>
-            </a>
-          )}
         </div>
       </div>
     </section>
