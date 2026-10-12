@@ -6,6 +6,7 @@ const trainerConfig = {
   whatsapp: "573026036066",
   appStoreUrl: "https://apps.apple.com/app/fittrack-app/id6783998522",
   instagramUrl: "https://www.instagram.com/iamrogerbolivarjr/",
+  email: "iamrogerbolivarjr@gmail.com",
 
   logoUrl: "/images/home/logo1.png",
 

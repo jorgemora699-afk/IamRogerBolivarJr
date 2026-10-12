@@ -1,6 +1,6 @@
 /* =========================================================
    footer.css — PASO 7: footer (fondo negro)
-   Móvil/tablet: centrado, en una columna · ≥900px: 3 columnas
+   Todo centrado: logo + lema, Instagram y correo, y legal.
    Usa los tokens de base.css (--negro, --amarillo, --gris-300…)
    ========================================================= */
 
@@ -16,10 +16,10 @@
   width: 100%;
   max-width: var(--maxw);
   margin-inline: auto;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2.25rem;
-  justify-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
   text-align: center;
 }
 
@@ -32,13 +32,13 @@
 }
 
 .site-footer__logo {
-  height: 60px;
+  height: 64px;
   width: auto;
   object-fit: contain;
 }
 
 .site-footer__lema {
-  max-width: 30ch;
+  max-width: 34ch;
   font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.18em;
@@ -47,56 +47,20 @@
   color: var(--gris-300);
 }
 
-/* ---------- Enlaces ---------- */
-.site-footer__nav {
+/* ---------- Instagram y correo ---------- */
+.site-footer__contactos {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 0.35rem 1.75rem;
+  gap: 0.9rem;
+  max-width: 100%;
 }
 
-.site-footer__link {
-  position: relative;
-  background: none;
-  border: 0;
-  padding: 0.4rem 0;
-  font-family: var(--font-body);
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--gris-300);
-  cursor: pointer;
-  transition: color 0.2s ease;
-}
-
-.site-footer__link::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 2px;
-  background: var(--amarillo);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.25s ease;
-}
-
-@media (hover: hover) {
-  .site-footer__link:hover {
-    color: var(--blanco);
-  }
-  .site-footer__link:hover::after {
-    transform: scaleX(1);
-  }
-}
-
-/* ---------- Instagram ---------- */
-.site-footer__instagram {
+.site-footer__contacto {
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
+  max-width: 100%;
   padding: 0.55rem 1.1rem 0.55rem 0.55rem;
   border-radius: 999px;
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -105,7 +69,8 @@
   transition: border-color 0.2s ease, transform 0.2s ease;
 }
 
-.site-footer__instagram-icono {
+.site-footer__contacto-icono {
+  flex-shrink: 0;
   width: 38px;
   height: 38px;
   display: grid;
@@ -116,23 +81,26 @@
   transition: transform 0.2s ease;
 }
 
-.site-footer__instagram-icono svg {
+.site-footer__contacto-icono svg {
   width: 20px;
   height: 20px;
 }
 
-.site-footer__instagram-texto {
+.site-footer__contacto-texto {
+  min-width: 0;
   font-size: 0.85rem;
   font-weight: 600;
   letter-spacing: 0.02em;
+  overflow-wrap: anywhere;
+  text-align: left;
 }
 
 @media (hover: hover) {
-  .site-footer__instagram:hover {
+  .site-footer__contacto:hover {
     border-color: var(--amarillo);
     transform: translateY(-2px);
   }
-  .site-footer__instagram:hover .site-footer__instagram-icono {
+  .site-footer__contacto:hover .site-footer__contacto-icono {
     transform: scale(1.08);
   }
 }
@@ -156,33 +124,15 @@
   }
 }
 
-/* ---------- Escritorio ---------- */
-@media (min-width: 900px) {
-  .site-footer__inner {
-    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
-    gap: 3rem;
-    align-items: center;
-    text-align: left;
-  }
-
-  .site-footer__marca {
-    align-items: flex-start;
-    justify-self: start;
-  }
-
-  .site-footer__redes {
-    justify-self: end;
-  }
-
-  .site-footer__legal {
-    text-align: left;
+@media (max-width: 420px) {
+  .site-footer__contacto-texto {
+    font-size: 0.8rem;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .site-footer__link::after,
-  .site-footer__instagram,
-  .site-footer__instagram-icono {
+  .site-footer__contacto,
+  .site-footer__contacto-icono {
     transition: none;
   }
 }

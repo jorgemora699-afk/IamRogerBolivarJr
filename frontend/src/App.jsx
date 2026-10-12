@@ -46,7 +46,7 @@ function App() {
 
       <Contacto />
 
-      <Footer onNavigate={scrollToSection} />
+      <Footer />
 
       {planSeleccionado && (
         <ReservaModal plan={planSeleccionado} onClose={() => setPlanSeleccionado(null)} />

@@ -1,33 +1,33 @@
 import trainerConfig from "../config/trainerConfig";
 import "../footer.css";
 
-const LINKS = [
-  { id: "home", label: "Inicio" },
-  { id: "planes", label: "Planes" },
-  { id: "productos", label: "Productos" },
-  { id: "testimonios", label: "Testimonios" },
-  { id: "sobre-mi", label: "Sobre mí" },
-  { id: "contacto", label: "Contacto" },
-];
+const svgProps = {
+  viewBox: "0 0 24 24",
+  fill: "none",
+  stroke: "currentColor",
+  strokeWidth: 1.8,
+  strokeLinecap: "round",
+  strokeLinejoin: "round",
+  "aria-hidden": true,
+};
 
 const IconoInstagram = (
-  <svg
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="1.8"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    aria-hidden="true"
-  >
+  <svg {...svgProps}>
     <rect x="3" y="3" width="18" height="18" rx="5" />
     <circle cx="12" cy="12" r="4" />
     <circle cx="17.5" cy="6.5" r="0.6" fill="currentColor" />
   </svg>
 );
 
-function Footer({ onNavigate }) {
-  const { nombre, logoUrl, hero, instagramUrl } = trainerConfig;
+const IconoCorreo = (
+  <svg {...svgProps}>
+    <rect x="3" y="5" width="18" height="14" rx="2.5" />
+    <path d="m4 7.5 8 6 8-6" />
+  </svg>
+);
+
+function Footer() {
+  const { nombre, logoUrl, hero, instagramUrl, email } = trainerConfig;
 
   // https://www.instagram.com/iamrogerbolivarjr/ -> @iamrogerbolivarjr
   const usuario = instagramUrl
@@ -46,30 +46,31 @@ function Footer({ onNavigate }) {
           )}
         </div>
 
-        <nav className="site-footer__nav" aria-label="Pie de página">
-          {LINKS.map((l) => (
-            <button
-              key={l.id}
-              className="site-footer__link"
-              onClick={() => onNavigate(l.id)}
-            >
-              {l.label}
-            </button>
-          ))}
-        </nav>
+        {(instagramUrl || email) && (
+          <div className="site-footer__contactos">
+            {instagramUrl && (
+              <a
+                className="site-footer__contacto"
+                href={instagramUrl}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={`Instagram ${usuario}`}
+              >
+                <span className="site-footer__contacto-icono">{IconoInstagram}</span>
+                <span className="site-footer__contacto-texto">{usuario}</span>
+              </a>
+            )}
 
-        {instagramUrl && (
-          <div className="site-footer__redes">
-            <a
-              className="site-footer__instagram"
-              href={instagramUrl}
-              target="_blank"
-              rel="noreferrer"
-              aria-label={`Instagram ${usuario}`}
-            >
-              <span className="site-footer__instagram-icono">{IconoInstagram}</span>
-              <span className="site-footer__instagram-texto">{usuario}</span>
-            </a>
+            {email && (
+              <a
+                className="site-footer__contacto"
+                href={`mailto:${email}`}
+                aria-label={`Correo ${email}`}
+              >
+                <span className="site-footer__contacto-icono">{IconoCorreo}</span>
+                <span className="site-footer__contacto-texto">{email}</span>
+              </a>
+            )}
           </div>
         )}
       </div>
