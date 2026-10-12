@@ -249,10 +249,14 @@
   display: flex;
   gap: 24px;
   overflow-x: auto;
-  scroll-snap-type: x mandatory;
+  overflow-y: hidden;                 /* clave: evita que atrape el scroll vertical */
+  scroll-snap-type: x proximity;      /* menos agresivo que "mandatory" */
   -webkit-overflow-scrolling: touch;
   padding: 8px 4px 24px;
-  scrollbar-width: none; /* Firefox */
+  scrollbar-width: none;
+  touch-action: pan-x pan-y;
+  overscroll-behavior-x: contain;
+  overscroll-behavior-y: auto;
 }
 .testis__pista::-webkit-scrollbar {
   display: none; /* Chrome / Safari */
