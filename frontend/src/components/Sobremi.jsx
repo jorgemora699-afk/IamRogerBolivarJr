@@ -1,7 +1,7 @@
 import { useState } from "react";
 import trainerConfig from "../config/trainerConfig";
 import { useScrollReveal } from "../hooks/useScrollReveal";
-import "../sobremi.css";
+import "../Sobremi.css";
 
 const svgProps = {
   viewBox: "0 0 24 24",
