@@ -1,57 +1,54 @@
 /* =========================================================
-   planes.css — PASO 2: sección Planes
-   Móvil: 1 columna · ≥900px: 3 columnas
+   planes.css — sección Planes (2 franjas)
+   1) Franja blanca: foto a la izquierda + texto
+   2) Panel oscuro: los 3 planes
+   Móvil: 1 columna · ≥900px: foto/texto en 2 columnas y planes en 3
    Usa los tokens de base.css (--negro, --amarillo, --gris-300…)
    ========================================================= */
 
 .planes {
   position: relative;
-  isolation: isolate;
-  overflow: hidden;
-  padding: clamp(4rem, 9vw, 7rem) var(--gutter);
-  background: var(--negro);
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-/* Franja diagonal tenue y resplandor amarillo, como el hero */
-.planes::before,
-.planes::after {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  pointer-events: none;
+/* =========================================================
+   FRANJA BLANCA
+   ========================================================= */
+.planes__intro {
+  background: #f5f5f5;
+  padding: clamp(3rem, 7vw, 5.5rem) var(--gutter);
 }
 
-.planes::before {
-  top: -15%;
-  right: -8%;
-  width: 30%;
-  height: 130%;
-  background: rgba(255, 255, 255, 0.025);
-  transform: skewX(-10deg);
-}
-
-.planes::after {
-  inset: 0;
-  background: radial-gradient(
-    ellipse 50% 45% at 50% 62%,
-    rgba(255, 210, 31, 0.07),
-    transparent 70%
-  );
-}
-
-.planes__inner {
+.planes__intro-inner {
   width: 100%;
   max-width: var(--maxw);
   margin-inline: auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: center;
 }
 
-/* ---------- Cabecera ---------- */
-.planes__cabecera {
-  max-width: 640px;
-  margin-bottom: clamp(2.5rem, 5vw, 3.5rem);
+/* ---------- Foto ---------- */
+.planes__foto {
+  position: relative;
 }
 
+.planes__foto-img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  max-height: 380px;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 18px;
+}
+
+/* La franja amarilla solo aparece en escritorio (acompaña el corte diagonal) */
+.planes__foto-franja {
+  display: none;
+}
+
+/* ---------- Texto ---------- */
 .planes__eyebrow {
   display: flex;
   align-items: center;
@@ -62,7 +59,7 @@
   font-weight: 700;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--gris-300);
+  color: #4a4a4f;
 }
 
 .planes__eyebrow::before {
@@ -77,22 +74,71 @@
   font-family: var(--font-display);
   font-weight: 800;
   text-transform: uppercase;
-  line-height: 0.95;
-  font-size: clamp(2.6rem, 7vw, 4.6rem);
-  color: var(--blanco);
+  line-height: 0.98;
+  font-size: clamp(2.5rem, 6.5vw, 4.4rem);
+  color: var(--negro);
   margin-bottom: 1.25rem;
 }
 
+/* Sobre fondo blanco el amarillo no se lee como letra:
+   va como resaltador detrás del texto negro */
 .planes__titulo-acento {
   display: block;
-  color: var(--amarillo);
+  width: fit-content;
+  color: var(--negro);
+  box-shadow: inset 0 -0.32em 0 var(--amarillo);
 }
 
 .planes__texto {
   max-width: 52ch;
   font-size: clamp(0.96rem, 1.4vw, 1.08rem);
-  line-height: 1.6;
-  color: var(--gris-300);
+  line-height: 1.65;
+  color: #3a3a3f;
+}
+
+/* =========================================================
+   PANEL OSCURO
+   ========================================================= */
+.planes__panel {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: clamp(3.5rem, 8vw, 6rem) var(--gutter);
+  background: var(--negro);
+  border-top: 4px solid var(--amarillo);
+}
+
+/* Franja diagonal tenue y resplandor amarillo, como el hero */
+.planes__panel::before,
+.planes__panel::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.planes__panel::before {
+  top: -15%;
+  right: -8%;
+  width: 30%;
+  height: 130%;
+  background: rgba(255, 255, 255, 0.025);
+  transform: skewX(-10deg);
+}
+
+.planes__panel::after {
+  inset: 0;
+  background: radial-gradient(
+    ellipse 50% 45% at 50% 55%,
+    rgba(255, 210, 31, 0.07),
+    transparent 70%
+  );
+}
+
+.planes__panel-inner {
+  width: 100%;
+  max-width: var(--maxw);
+  margin-inline: auto;
 }
 
 /* ---------- Grilla ---------- */
@@ -102,6 +148,7 @@
   gap: 2rem;
   max-width: 620px;
   margin-inline: auto;
+  padding-top: 0.75rem; /* espacio para la etiqueta "Más popular" */
 }
 
 .plan-wrap {
@@ -241,8 +288,46 @@
   }
 }
 
-/* ---------- Escritorio ---------- */
+/* =========================================================
+   ESCRITORIO
+   ========================================================= */
 @media (min-width: 900px) {
+  /* Foto a la izquierda, texto a la derecha */
+  .planes__intro-inner {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: clamp(2.5rem, 5vw, 5rem);
+  }
+
+  .planes__foto {
+    align-self: stretch;
+    min-height: 360px;
+  }
+
+  /* Foto con corte diagonal a la derecha */
+  .planes__foto-img,
+  .planes__foto-franja {
+    clip-path: polygon(0 0, 100% 0, 86% 100%, 0 100%);
+  }
+
+  .planes__foto-img {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    max-height: none;
+    aspect-ratio: auto;
+    border-radius: 0;
+  }
+
+  /* Franja amarilla: mismo corte, desplazada para dejar ver un borde */
+  .planes__foto-franja {
+    display: block;
+    position: absolute;
+    inset: 0;
+    background: var(--amarillo);
+    transform: translateX(14px);
+  }
+
+  /* Planes en 3 columnas */
   .planes__grid {
     grid-template-columns: repeat(3, 1fr);
     gap: 1.75rem;
