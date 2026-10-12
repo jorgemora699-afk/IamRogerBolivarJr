@@ -1,21 +1,37 @@
 /* =========================================================
-   planes.css — sección Planes (2 franjas)
-   1) Franja blanca: foto a la izquierda + texto
-   2) Panel oscuro: los 3 planes
+   planes.css — sección Planes (un solo fondo claro)
+   Arriba: foto a la izquierda + texto. Abajo: los 3 planes.
+   Tarjetas blancas y Premium en negro con borde amarillo.
    Móvil: 1 columna · ≥900px: foto/texto en 2 columnas y planes en 3
    Usa los tokens de base.css (--negro, --amarillo, --gris-300…)
    ========================================================= */
 
 .planes {
   position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: #f5f5f5;
+}
+
+/* Franja diagonal muy tenue, para dar textura sin cortar la sección */
+.planes::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: -10%;
+  right: -8%;
+  width: 30%;
+  height: 120%;
+  background: rgba(13, 13, 13, 0.035);
+  transform: skewX(-10deg);
+  pointer-events: none;
 }
 
 /* =========================================================
-   FRANJA BLANCA
+   ARRIBA: FOTO + TEXTO
    ========================================================= */
 .planes__intro {
-  background: #f5f5f5;
-  padding: clamp(3rem, 7vw, 5.5rem) var(--gutter);
+  padding: clamp(3rem, 7vw, 5.5rem) var(--gutter) clamp(2.5rem, 5vw, 3.5rem);
 }
 
 .planes__intro-inner {
@@ -80,7 +96,7 @@
   margin-bottom: 1.25rem;
 }
 
-/* Sobre fondo blanco el amarillo no se lee como letra:
+/* Sobre fondo claro el amarillo no se lee como letra:
    va como resaltador detrás del texto negro */
 .planes__titulo-acento {
   display: block;
@@ -97,42 +113,10 @@
 }
 
 /* =========================================================
-   PANEL OSCURO
+   ABAJO: PLANES (mismo fondo, sin corte)
    ========================================================= */
 .planes__panel {
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
-  padding: clamp(3.5rem, 8vw, 6rem) var(--gutter);
-  background: var(--negro);
-  border-top: 4px solid var(--amarillo);
-}
-
-/* Franja diagonal tenue y resplandor amarillo, como el hero */
-.planes__panel::before,
-.planes__panel::after {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  pointer-events: none;
-}
-
-.planes__panel::before {
-  top: -15%;
-  right: -8%;
-  width: 30%;
-  height: 130%;
-  background: rgba(255, 255, 255, 0.025);
-  transform: skewX(-10deg);
-}
-
-.planes__panel::after {
-  inset: 0;
-  background: radial-gradient(
-    ellipse 50% 45% at 50% 55%,
-    rgba(255, 210, 31, 0.07),
-    transparent 70%
-  );
+  padding: 0 var(--gutter) clamp(3.5rem, 8vw, 6rem);
 }
 
 .planes__panel-inner {
@@ -155,7 +139,7 @@
   display: flex;
 }
 
-/* ---------- Tarjeta ---------- */
+/* ---------- Tarjeta (blanca por defecto) ---------- */
 .plan {
   position: relative;
   flex: 1;
@@ -163,17 +147,131 @@
   flex-direction: column;
   padding: 2.25rem 1.75rem 1.75rem;
   border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: linear-gradient(160deg, #18181b 0%, #101012 100%);
+  border: 1px solid rgba(13, 13, 13, 0.12);
+  background: #ffffff;
+  box-shadow: 0 10px 30px rgba(13, 13, 13, 0.08);
   transition: translate 0.3s ease, border-color 0.3s ease,
     box-shadow 0.3s ease;
 }
 
+.plan__nombre {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.9rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  line-height: 1;
+  color: var(--negro);
+}
+
+.plan__tag {
+  margin-top: 0.45rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #6b6b70;
+}
+
+.plan__precio {
+  margin-top: 1.5rem;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(2.8rem, 6vw, 3.4rem);
+  line-height: 1;
+  color: var(--negro);
+}
+
+.plan__moneda {
+  margin-left: 0.5rem;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: #6b6b70;
+}
+
+.plan__lista {
+  list-style: none;
+  flex: 1;
+  margin: 1.5rem 0 2rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid rgba(13, 13, 13, 0.08);
+}
+
+.plan__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  padding: 0.7rem 0;
+  border-bottom: 1px dashed rgba(13, 13, 13, 0.15);
+  font-size: 0.92rem;
+  line-height: 1.4;
+  color: #2a2a2e;
+}
+
+.plan__item:last-child {
+  border-bottom: 0;
+}
+
+.plan__check {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  margin-top: 0.05rem;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--negro);
+  color: var(--blanco);
+  font-size: 0.7rem;
+  font-weight: 800;
+}
+
+.plan__boton {
+  width: 100%;
+}
+
+/* Botón de las tarjetas blancas: negro (el borde blanco no se vería) */
+.plan:not(.plan--destacado) .plan__boton {
+  background: var(--negro);
+  border-color: var(--negro);
+  color: var(--blanco);
+}
+
+/* ---------- Plan destacado (negro con borde amarillo) ---------- */
 .plan--destacado {
   border-color: var(--amarillo);
-  background: linear-gradient(160deg, #1f1d12 0%, #111112 70%);
-  box-shadow: 0 0 0 1px rgba(255, 210, 31, 0.3),
-    0 24px 60px rgba(255, 210, 31, 0.1);
+  background: linear-gradient(160deg, #1c1c1f 0%, #0d0d0e 100%);
+  box-shadow: 0 0 0 1px rgba(255, 210, 31, 0.35),
+    0 26px 60px rgba(13, 13, 13, 0.3);
+}
+
+.plan--destacado .plan__nombre {
+  color: var(--amarillo);
+}
+
+.plan--destacado .plan__tag,
+.plan--destacado .plan__moneda {
+  color: var(--gris-300);
+}
+
+.plan--destacado .plan__precio {
+  color: var(--blanco);
+}
+
+.plan--destacado .plan__lista {
+  border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+.plan--destacado .plan__item {
+  color: #e6e6e8;
+  border-bottom-color: rgba(255, 255, 255, 0.14);
+}
+
+.plan--destacado .plan__check {
+  background: rgba(255, 210, 31, 0.18);
+  color: var(--amarillo);
 }
 
 .plan__badge {
@@ -190,101 +288,27 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
   white-space: nowrap;
-  box-shadow: 0 6px 18px rgba(255, 210, 31, 0.35);
+  box-shadow: 0 6px 18px rgba(255, 210, 31, 0.4);
 }
 
-.plan__nombre {
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: 1.9rem;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  line-height: 1;
-  color: var(--blanco);
-}
-
-.plan--destacado .plan__nombre {
-  color: var(--amarillo);
-}
-
-.plan__tag {
-  margin-top: 0.45rem;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--gris-300);
-}
-
-.plan__precio {
-  margin-top: 1.5rem;
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: clamp(2.8rem, 6vw, 3.4rem);
-  line-height: 1;
-  color: var(--blanco);
-}
-
-.plan__moneda {
-  margin-left: 0.5rem;
-  font-family: var(--font-body);
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  color: var(--gris-300);
-}
-
-.plan__lista {
-  list-style: none;
-  flex: 1;
-  margin: 1.5rem 0 2rem;
-  padding-top: 0.5rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.plan__item {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.7rem;
-  padding: 0.7rem 0;
-  border-bottom: 1px dashed rgba(255, 255, 255, 0.12);
-  font-size: 0.92rem;
-  line-height: 1.4;
-  color: #e6e6e8;
-}
-
-.plan__item:last-child {
-  border-bottom: 0;
-}
-
-.plan__check {
-  flex-shrink: 0;
-  width: 20px;
-  height: 20px;
-  margin-top: 0.05rem;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  background: rgba(255, 210, 31, 0.15);
-  color: var(--amarillo);
-  font-size: 0.7rem;
-  font-weight: 800;
-}
-
-.plan__boton {
-  width: 100%;
-}
-
+/* ---------- Hover (solo dispositivos con mouse) ---------- */
 @media (hover: hover) {
   .plan:hover {
     translate: 0 -6px;
-    border-color: rgba(255, 255, 255, 0.3);
+    border-color: rgba(13, 13, 13, 0.35);
+    box-shadow: 0 18px 44px rgba(13, 13, 13, 0.16);
   }
 
   .plan--destacado:hover {
     border-color: var(--amarillo);
-    box-shadow: 0 0 0 1px rgba(255, 210, 31, 0.5),
-      0 30px 70px rgba(255, 210, 31, 0.18);
+    box-shadow: 0 0 0 1px rgba(255, 210, 31, 0.6),
+      0 32px 70px rgba(13, 13, 13, 0.38);
+  }
+
+  .plan:not(.plan--destacado) .plan__boton:hover {
+    background: var(--amarillo);
+    border-color: var(--amarillo);
+    color: var(--negro);
   }
 }
 
