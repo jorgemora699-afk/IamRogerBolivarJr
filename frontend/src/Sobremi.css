@@ -50,7 +50,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: 70% top;
+  object-position: 50% top;
 }
 
 /* Ya no se usa la franja amarilla */
@@ -185,5 +185,9 @@
 
   .sobremi__contenido {
     max-width: 660px;
+  }
+
+  .sobremi__img {
+    object-position: 20% top; /* escritorio: corre la foto hacia la derecha */
   }
 }
