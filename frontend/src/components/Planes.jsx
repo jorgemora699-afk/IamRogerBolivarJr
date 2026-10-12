@@ -11,7 +11,7 @@ const TEXTOS = {
   tituloAcento: "se adapte a ti",
   texto:
     "Cada cuerpo es diferente, por eso he diseñado paquetes personalizados para ayudarte a lograr tus objetivos, sin importar tu nivel de experiencia.",
-  imagen: "/images/home/ase.png",
+  imagen: "/images/home/roger-hero.png",
   ...(trainerConfig.seccionPlanes || {}),
 };
 

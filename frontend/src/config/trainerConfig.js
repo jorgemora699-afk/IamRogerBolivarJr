@@ -27,7 +27,7 @@ const trainerConfig = {
     destacada: "Empieza aquí",
     descripcion:
       "Te ayudo a alcanzar tus objetivos con planes personalizados de entrenamiento, nutrición y suplementación, para que logres un cuerpo más fuerte, saludable y una mejor versión de ti.",
-    imagen: "/images/home/roger-hero.png",
+    imagen: "/images/home/ase.png",
     botonPrincipal: "Hablar por WhatsApp",
     botonSecundario: "Conoce mis paquetes",
     mensajeWhatsapp: "Hola, quiero información sobre tus planes",

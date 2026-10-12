@@ -4,12 +4,12 @@ import trainerConfig from "./config/trainerConfig";
 import "./styles.css";
 import "./base.css"; // siempre después de styles.css
 import SuplementoConfirmModal from "./components/SuplementoConfirmModal";
-import TestimonioFotos from "./components/TestimonioFotos";
 import WhatsAppFlotante from "./components/WhatsAppFlotante";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Planes from "./components/Planes";
 import Suplementos from "./components/Suplementos";
+import Testimonios from "./components/Testimonios";
 
 function scrollToSection(id) {
   document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -37,26 +37,7 @@ function App() {
 
       <Suplementos onCategoria={setCategoriaSeleccionada} />
 
-      {/* Testimonios */}
-      <section id="testimonios" className="testimonios-seccion">
-        <p className="seccion-eyebrow">— TESTIMONIOS</p>
-        <h2 className="seccion-titulo">Resultados reales</h2>
-        {trainerConfig.testimonios.length === 0 ? (
-          <div className="testimonios-vacio">
-            <p className="testimonios-vacio__titulo">Muy pronto</p>
-            <p className="testimonios-vacio__texto">
-              Estoy reuniendo las historias de mis clientes. Si ya entrenas
-              conmigo, escríbeme y sé el primero en aparecer aquí.
-            </p>
-          </div>
-        ) : (
-          <div className="testimonios">
-            {trainerConfig.testimonios.map((t, i) => (
-              <TestimonioFotos key={i} antes={t.antes} despues={t.despues} index={i} />
-            ))}
-          </div>
-        )}
-      </section>
+      <Testimonios />
 
       {/* Contacto */}
       <section id="contacto" className="contacto-seccion">
