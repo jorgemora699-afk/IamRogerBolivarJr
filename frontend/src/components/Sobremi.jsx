@@ -33,7 +33,7 @@ const ICONOS = {
 
 // Valores por defecto; se pueden cambiar con trainerConfig.seccionSobreMi
 const TEXTOS = {
-  imagen: "/images/home/ase.png",
+  imagen: "/images/home/roger-hero.png",
   eyebrow: "Sobre mí",
   titulo: "Disciplina, experiencia",
   tituloAcento: "y pasión por el fitness",

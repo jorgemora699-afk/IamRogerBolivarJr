@@ -63,6 +63,7 @@ function Testimonios() {
                 key={i}
                 antes={t.antes}
                 despues={t.despues}
+                frase={t.frase}
                 nombre={t.nombre}
                 detalle={t.detalle}
                 index={i}

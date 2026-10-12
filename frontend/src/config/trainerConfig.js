@@ -110,10 +110,34 @@ const trainerConfig = {
     { id: "frecuencia_semanal", label: "Frecuencia semanal", tipo: "number" },
   ],
 
+  // Cada testimonio: fotos antes/después + frase.
+  // `nombre` y `detalle` son opcionales (si los agregas, aparecen bajo la frase).
+  // IMPORTANTE: cambia las frases por las palabras reales de cada cliente
+  // (o que ellos las aprueben) antes de publicar.
   testimonios: [
     {
       antes: "/images/testimonios/cliente1-antes.png",
       despues: "/images/testimonios/cliente1-despues.png",
+      frase:
+        "Antes entrenaba sin saber si lo estaba haciendo bien. Ahora tengo una rutina clara, como mejor y siento que cada semana estoy más cerca de mi objetivo",
+    },
+    {
+      antes: "/images/testimonios/cliente4-antes.png",
+      despues: "/images/testimonios/cliente4-despues.png",
+      frase:
+        "Lo mejor ha sido ver cambios que antes parecían imposibles. La ropa me queda diferente, tengo más fuerza y ya no me da pena reconocer todo lo que he avanzado.",
+    },
+    {
+      antes: "/images/testimonios/cliente3-antes.png",
+      despues: "/images/testimonios/cliente3-despues.png",
+      frase:
+        "No se trata solo de levantar más peso. Aprendí a hacer los ejercicios con buena técnica, a ser constante y a dejar de compararme con los demás. Hoy entreno con mucha más seguridad.",
+    },
+    {
+      antes: "/images/testimonios/cliente2-antes.png",
+      despues: "/images/testimonios/cliente2-despues.png",
+      frase:
+        "Hubo días en los que no veía resultados y quería abandonar. Tener a alguien que me exigiera, me corrigiera y me recordara por qué empecé hizo toda la diferencia. Hoy me siento orgulloso de no haberme rendido.",
     },
   ],
 
