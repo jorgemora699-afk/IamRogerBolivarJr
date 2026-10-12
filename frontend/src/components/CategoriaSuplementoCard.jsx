@@ -8,28 +8,52 @@ function CategoriaSuplementoCard({ categoria, onClick, index = 0 }) {
   return (
     <div
       ref={ref}
-      className={`producto-card producto-card--clickeable reveal ${visible ? "reveal--visible" : ""}`}
-      style={{ transitionDelay: `${index * 0.1}s` }}
-      onClick={() => onClick(categoria)}
-      role="button"
+      className={`supl-wrap reveal ${visible ? "reveal--visible" : ""}`}
+      style={{ transitionDelay: `${index * 0.12}s` }}
     >
-      {categoria.imagen && (
-        <div className="producto-card__imagen-wrap">
-          {!cargada && <div className="skeleton" />}
-          <img className="producto-card__imagen-fondo" src={categoria.imagen} alt="" aria-hidden="true" />
-          <img
-            className="producto-card__imagen"
-            src={categoria.imagen}
-            alt={categoria.nombre}
-            onLoad={() => setCargada(true)}
-            style={{ opacity: cargada ? 1 : 0 }}
-          />
+      <button
+        type="button"
+        className="supl-card supl-card--clickeable"
+        onClick={() => onClick(categoria)}
+      >
+        {categoria.imagen && (
+          <div className="supl-card__media">
+            {!cargada && <div className="skeleton" />}
+            <img
+              className="supl-card__img-fondo"
+              src={categoria.imagen}
+              alt=""
+              aria-hidden="true"
+            />
+            <img
+              className="supl-card__img"
+              src={categoria.imagen}
+              alt={categoria.nombre}
+              onLoad={() => setCargada(true)}
+              style={{ opacity: cargada ? 1 : 0 }}
+            />
+          </div>
+        )}
+
+        <div className="supl-card__info">
+          <h3 className="supl-card__nombre">{categoria.nombre}</h3>
+          <p className="supl-card__descripcion">{categoria.descripcion}</p>
+          <span className="supl-card__cta">
+            Me interesa
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M5 12h14M13 6l6 6-6 6" />
+            </svg>
+          </span>
         </div>
-      )}
-      <div className="producto-card__info">
-        <p className="producto-card__nombre">{categoria.nombre}</p>
-        <p className="producto-card__descripcion">{categoria.descripcion}</p>
-      </div>
+      </button>
     </div>
   );
 }

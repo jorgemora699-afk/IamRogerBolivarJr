@@ -1,16 +1,15 @@
 import { useState } from "react";
 import ReservaModal from "./components/ReservaModal";
 import trainerConfig from "./config/trainerConfig";
-import ProductoCard from "./components/ProductoCard";
 import "./styles.css";
 import "./base.css"; // siempre después de styles.css
-import CategoriaSuplementoCard from "./components/CategoriaSuplementoCard";
 import SuplementoConfirmModal from "./components/SuplementoConfirmModal";
 import TestimonioFotos from "./components/TestimonioFotos";
 import WhatsAppFlotante from "./components/WhatsAppFlotante";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Planes from "./components/Planes";
+import Suplementos from "./components/Suplementos";
 
 function scrollToSection(id) {
   document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -36,24 +35,7 @@ function App() {
 
       <Planes onElegir={setPlanSeleccionado} />
 
-      {/* Productos */}
-      <section id="productos" className="productos-seccion">
-        <p className="seccion-eyebrow">— PRODUCTOS</p>
-        <h2 className="seccion-titulo">Suplementos</h2>
-        <div className="productos">
-          {trainerConfig.categoriasSuplementos.map((categoria, i) => (
-            <CategoriaSuplementoCard
-              key={categoria.id}
-              categoria={categoria}
-              index={i}
-              onClick={setCategoriaSeleccionada}
-            />
-          ))}
-          {trainerConfig.productos.map((producto, i) => (
-            <ProductoCard key={producto.id} producto={producto} index={i} />
-          ))}
-        </div>
-      </section>
+      <Suplementos onCategoria={setCategoriaSeleccionada} />
 
       {/* Testimonios */}
       <section id="testimonios" className="testimonios-seccion">

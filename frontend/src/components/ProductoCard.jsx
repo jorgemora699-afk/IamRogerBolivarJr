@@ -8,32 +8,37 @@ function ProductoCard({ producto, index = 0 }) {
   return (
     <div
       ref={ref}
-      className={`producto-card reveal ${visible ? "reveal--visible" : ""}`}
-      style={{ transitionDelay: `${index * 0.1}s` }}
+      className={`supl-wrap reveal ${visible ? "reveal--visible" : ""}`}
+      style={{ transitionDelay: `${index * 0.12}s` }}
     >
-      {producto.imagen && (
-        <div className="producto-card__imagen-wrap">
-          {!cargada && <div className="skeleton" />}
-          <img
-            className="producto-card__imagen-fondo"
-            src={producto.imagen}
-            alt=""
-            aria-hidden="true"
-          />
-          <img
-            className="producto-card__imagen"
-            src={producto.imagen}
-            alt={producto.nombre}
-            onLoad={() => setCargada(true)}
-            style={{ opacity: cargada ? 1 : 0 }}
-          />
+      <article className="supl-card">
+        {producto.imagen && (
+          <div className="supl-card__media">
+            {!cargada && <div className="skeleton" />}
+            <img
+              className="supl-card__img-fondo"
+              src={producto.imagen}
+              alt=""
+              aria-hidden="true"
+            />
+            <img
+              className="supl-card__img"
+              src={producto.imagen}
+              alt={producto.nombre}
+              onLoad={() => setCargada(true)}
+              style={{ opacity: cargada ? 1 : 0 }}
+            />
+          </div>
+        )}
+
+        <div className="supl-card__info">
+          {producto.categoria && (
+            <p className="supl-card__eyebrow">{producto.categoria}</p>
+          )}
+          <h3 className="supl-card__nombre">{producto.nombre}</h3>
+          <p className="supl-card__descripcion">{producto.descripcion}</p>
         </div>
-      )}
-      <div className="producto-card__info">
-        <p className="producto-card__eyebrow">{producto.categoria}</p>
-        <p className="producto-card__nombre">{producto.nombre}</p>
-        <p className="producto-card__descripcion">{producto.descripcion}</p>
-      </div>
+      </article>
     </div>
   );
 }
