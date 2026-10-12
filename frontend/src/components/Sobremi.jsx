@@ -35,8 +35,8 @@ const ICONOS = {
 const TEXTOS = {
   imagen: "/images/home/roger-hero.png",
   eyebrow: "Sobre mí",
-  titulo: "Disciplina, experiencia",
-  tituloAcento: "y pasión por el fitness",
+  titulo: "Disciplina, experiencia y",
+  tituloAcento: "pasión por el fitness",
   texto:
     "Soy un entrenador certificado, comprometido con acompañarte en tu proceso de transformación. Mi objetivo es que alcances tus metas de forma segura, efectiva y sostenible, con un enfoque personalizado y basado en ciencia y en la biomecánica aplicada al entrenamiento de fuerza.",
   beneficios: [
