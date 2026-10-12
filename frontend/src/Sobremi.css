@@ -8,21 +8,21 @@
 
 .sobremi {
   position: relative;
-  padding: clamp(3rem, 7vw, 5.5rem) var(--gutter);
+  padding: 0;                       /* sin márgenes: la foto llega a los bordes */
   background: var(--negro);
+  overflow: hidden;
 }
 
 .sobremi__card {
-  position: relative;
+  position: static;                 /* la foto se ancla a la sección, no a la tarjeta */
   width: 100%;
-  max-width: var(--maxw);
-  margin-inline: auto;
+  max-width: none;
+  margin: 0;
   display: flex;
-  overflow: hidden;
-  border-radius: 24px;
-  background: var(--negro-2);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  min-height: clamp(520px, 75vh, 700px);
+  border-radius: 0;
+  border: 0;
+  background: transparent;
+  min-height: clamp(560px, 85vh, 780px);
 }
 
 /* ---------- Foto ---------- */
@@ -50,7 +50,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: 50% top;
+  object-position: center;          /* centrada */
 }
 
 /* Ya no se usa la franja amarilla */
@@ -63,10 +63,12 @@
   position: relative;
   z-index: 1;
   width: 100%;
+  max-width: var(--maxw);
+  margin-inline: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: clamp(1.75rem, 4vw, 4rem);
+  padding: clamp(3rem, 7vw, 5.5rem) var(--gutter);
 }
 
 .sobremi__eyebrow {
@@ -184,10 +186,11 @@
   }
 
   .sobremi__contenido {
-    max-width: 660px;
-  }
+    max-width: var(--maxw);
+    }
 
-  .sobremi__img {
-    object-position: 20% top; /* escritorio: corre la foto hacia la derecha */
-  }
+    .sobremi__contenido > * {
+    max-width: 600px;                 /* el texto ocupa solo la parte izquierda */
+    }
+
 }
