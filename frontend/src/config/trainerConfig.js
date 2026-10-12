@@ -5,6 +5,7 @@ const trainerConfig = {
   nombre: "IamRogerBolivarJr",
   whatsapp: "573026036066",
   appStoreUrl: "https://apps.apple.com/app/fittrack-app/id6783998522",
+  instagramUrl: "https://www.instagram.com/iamrogerbolivarjr/",
 
   logoUrl: "/images/home/logo1.png",
 
@@ -119,25 +120,25 @@ const trainerConfig = {
       antes: "/images/testimonios/cliente1-antes.png",
       despues: "/images/testimonios/cliente1-despues.png",
       frase:
-        "Antes entrenaba sin saber si lo estaba haciendo bien. Ahora tengo una rutina clara, como mejor y siento que cada semana estoy más cerca de mi objetivo",
-    },
-    {
-      antes: "/images/testimonios/cliente4-antes.png",
-      despues: "/images/testimonios/cliente4-despues.png",
-      frase:
-        "Lo mejor ha sido ver cambios que antes parecían imposibles. La ropa me queda diferente, tengo más fuerza y ya no me da pena reconocer todo lo que he avanzado.",
-    },
-    {
-      antes: "/images/testimonios/cliente3-antes.png",
-      despues: "/images/testimonios/cliente3-despues.png",
-      frase:
-        "No se trata solo de levantar más peso. Aprendí a hacer los ejercicios con buena técnica, a ser constante y a dejar de compararme con los demás. Hoy entreno con mucha más seguridad.",
+        "El entrenador me ha ayudado muchísimo. Hoy me siento mucho más seguro con mi cuerpo.",
     },
     {
       antes: "/images/testimonios/cliente2-antes.png",
       despues: "/images/testimonios/cliente2-despues.png",
       frase:
-        "Hubo días en los que no veía resultados y quería abandonar. Tener a alguien que me exigiera, me corrigiera y me recordara por qué empecé hizo toda la diferencia. Hoy me siento orgulloso de no haberme rendido.",
+        "Con su acompañamiento aprendí a entrenar y a comer mejor. Tengo una energía que nunca había tenido.",
+    },
+    {
+      antes: "/images/testimonios/cliente3-antes.png",
+      despues: "/images/testimonios/cliente3-despues.png",
+      frase:
+        "Me explica cada ejercicio y se preocupa por que lo haga bien. Los resultados se notan y me motivan a seguir.",
+    },
+    {
+      antes: "/images/testimonios/cliente4-antes.png",
+      despues: "/images/testimonios/cliente4-despues.png",
+      frase:
+        "Cambié mi cuerpo y también la confianza en mí. Gracias por no dejarme rendir.",
     },
   ],
 

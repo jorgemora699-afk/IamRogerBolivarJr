@@ -12,6 +12,7 @@ import Planes from "./components/Planes";
 import Suplementos from "./components/Suplementos";
 import Testimonios from "./components/Testimonios";
 import Contacto from "./components/Contacto";
+import Footer from "./components/Footer";
 
 function scrollToSection(id) {
   document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -44,6 +45,8 @@ function App() {
       <SobreMi />
 
       <Contacto />
+
+      <Footer onNavigate={scrollToSection} />
 
       {planSeleccionado && (
         <ReservaModal plan={planSeleccionado} onClose={() => setPlanSeleccionado(null)} />
