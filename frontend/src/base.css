@@ -625,3 +625,25 @@ body,
   text-align: left;
   background: var(--negro);
 }
+
+/* Foto completa en escritorio (sin recortes) */
+@media (min-width: 900px) {
+  .hero__media {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    /* el degradado pasa a la imagen, no al contenedor */
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+
+  .hero__img {
+    width: auto;
+    height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+    object-position: right bottom;
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 28%);
+    mask-image: linear-gradient(90deg, transparent 0%, #000 28%);
+  }
+}
