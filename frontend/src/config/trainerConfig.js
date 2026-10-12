@@ -28,8 +28,7 @@ const trainerConfig = {
     descripcion:
       "Te ayudo a alcanzar tus objetivos con planes personalizados de entrenamiento, nutrición y suplementación, para que logres un cuerpo más fuerte, saludable y una mejor versión de ti.",
     imagen: "/images/home/ase.png",
-    botonPrincipal: "Hablar por WhatsApp",
-    botonSecundario: "Conoce mis paquetes",
+    botonSecundario: "Conoce mis planes",
     mensajeWhatsapp: "Hola, quiero información sobre tus planes",
     beneficios: [
       { icono: "energia", texto: "Más energía" },

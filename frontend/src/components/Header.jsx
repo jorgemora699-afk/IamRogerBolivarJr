@@ -3,6 +3,7 @@ import trainerConfig from "../config/trainerConfig";
 
 const LINKS = [
   { id: "home", label: "Inicio" },
+  { id: "sobre-mi", label: "Sobre mí" },
   { id: "planes", label: "Planes" },
   { id: "productos", label: "Productos" },
   { id: "testimonios", label: "Testimonios" },

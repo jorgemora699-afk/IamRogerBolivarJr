@@ -1,0 +1,190 @@
+/* =========================================================
+   sobremi.css — PASO 5: sección Sobre mí
+   Tarjeta clara sobre fondo oscuro, como en la referencia.
+   Móvil: foto arriba, texto abajo · ≥900px: foto a la izquierda con
+   corte diagonal y franja amarilla.
+   Usa los tokens de base.css (--negro, --amarillo…)
+   ========================================================= */
+
+.sobremi {
+  position: relative;
+  padding: clamp(3rem, 7vw, 5.5rem) var(--gutter);
+  background: var(--negro);
+}
+
+.sobremi__card {
+  position: relative;
+  width: 100%;
+  max-width: var(--maxw);
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  overflow: hidden;
+  border-radius: 24px;
+  background: #f1f1f3;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55);
+}
+
+/* ---------- Foto ---------- */
+.sobremi__foto {
+  position: relative;
+  min-height: 260px;
+  aspect-ratio: 4 / 3;
+  max-height: 420px;
+}
+
+.sobremi__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+/* La franja amarilla solo aparece en escritorio (acompaña el corte diagonal) */
+.sobremi__franja {
+  display: none;
+}
+
+/* ---------- Contenido ---------- */
+.sobremi__contenido {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(1.75rem, 4vw, 4rem);
+}
+
+.sobremi__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  font-family: var(--font-body);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #4a4a4f;
+}
+
+.sobremi__eyebrow::before {
+  content: "";
+  width: 30px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--amarillo);
+}
+
+.sobremi__titulo {
+  font-family: var(--font-display);
+  font-weight: 800;
+  text-transform: uppercase;
+  line-height: 1.02;
+  font-size: clamp(2rem, 5vw, 3.6rem);
+  color: var(--negro);
+  margin-bottom: 1.25rem;
+}
+
+/* Resaltador amarillo detrás del texto negro (funciona aunque salte de línea) */
+.sobremi__acento {
+  box-shadow: inset 0 -0.3em 0 var(--amarillo);
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+.sobremi__texto {
+  max-width: 58ch;
+  font-size: clamp(0.96rem, 1.4vw, 1.08rem);
+  line-height: 1.7;
+  color: #3a3a3f;
+}
+
+/* ---------- Beneficios ---------- */
+.sobremi__beneficios {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(13, 13, 13, 0.12);
+}
+
+.sobremi__beneficio {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: #2a2a2e;
+}
+
+.sobremi__icono {
+  width: 42px;
+  height: 42px;
+  padding: 10px;
+  border-radius: 50%;
+  background: var(--amarillo);
+  color: var(--negro);
+}
+
+.sobremi__icono svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Sin foto: la tarjeta es solo texto */
+.sobremi__card--sin-foto .sobremi__contenido {
+  max-width: 820px;
+}
+
+@media (min-width: 640px) {
+  .sobremi__beneficio {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.86rem;
+  }
+}
+
+/* =========================================================
+   ESCRITORIO
+   ========================================================= */
+@media (min-width: 900px) {
+  .sobremi__card {
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  }
+
+  .sobremi__card--sin-foto {
+    grid-template-columns: 1fr;
+  }
+
+  .sobremi__foto {
+    aspect-ratio: auto;
+    max-height: none;
+    min-height: 460px;
+  }
+
+  /* Foto con corte diagonal a la derecha */
+  .sobremi__img,
+  .sobremi__franja {
+    clip-path: polygon(0 0, 100% 0, 86% 100%, 0 100%);
+  }
+
+  /* Franja amarilla: mismo corte, desplazada para dejar ver un borde */
+  .sobremi__franja {
+    display: block;
+    position: absolute;
+    inset: 0;
+    background: var(--amarillo);
+    transform: translateX(14px);
+  }
+
+  .sobremi__contenido {
+    padding-left: clamp(1.5rem, 3vw, 3rem);
+  }
+}
