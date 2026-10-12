@@ -50,7 +50,6 @@ function Header({ onNavigate }) {
           {trainerConfig.logoUrl && (
             <img src={trainerConfig.logoUrl} alt="" className="brand__logo" />
           )}
-          <span className="brand__nombre">{trainerConfig.nombre}</span>
         </button>
 
         <nav className="site-nav" aria-label="Principal">
