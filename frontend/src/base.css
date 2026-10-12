@@ -519,7 +519,8 @@ section[id] {
   }
 }
 
-@media (min-height: 640px) {
+/* Solo en escritorio (en celular y tablet no hace falta) y con pantalla alta */
+@media (min-width: 900px) and (min-height: 640px) {
   .hero__scroll {
     display: block;
   }

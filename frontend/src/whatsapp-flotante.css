@@ -1,0 +1,162 @@
+/* =========================================================
+   whatsapp-flotante.css — botón flotante de WhatsApp
+   Clases nuevas (.wa-fab*): no dependen del orden de imports
+   y reemplazan a .whatsapp-flotante de styles.css.
+   ========================================================= */
+
+.wa-fab {
+  position: fixed;
+  right: calc(18px + env(safe-area-inset-right, 0px));
+  bottom: calc(18px + env(safe-area-inset-bottom, 0px));
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+
+  /* Oculto al inicio; aparece al bajar la página */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(18px) scale(0.85);
+  transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1),
+    visibility 0.4s;
+}
+
+.wa-fab--visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+/* ---------- Círculo ---------- */
+.wa-fab__circulo {
+  position: relative;
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #25d366;
+  color: #ffffff;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.wa-fab__icono {
+  width: 30px;
+  height: 30px;
+}
+
+/* Pulso suave y lento */
+.wa-fab__circulo::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: 50%;
+  background: #25d366;
+  animation: waPulso 2.6s ease-out infinite;
+}
+
+@keyframes waPulso {
+  0% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+  70%,
+  100% {
+    opacity: 0;
+    transform: scale(1.7);
+  }
+}
+
+/* ---------- Etiqueta "¿Hablamos?" (solo con mouse) ---------- */
+.wa-fab__label {
+  display: none;
+}
+
+@media (hover: hover) and (min-width: 900px) {
+  .wa-fab__circulo {
+    width: 60px;
+    height: 60px;
+  }
+
+  .wa-fab__label {
+    display: block;
+    max-width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 0.7rem 0;
+    border-radius: 999px;
+    background: var(--negro);
+    color: var(--blanco);
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0;
+    transition: max-width 0.3s ease, padding 0.3s ease, opacity 0.2s ease;
+  }
+
+  .wa-fab:hover .wa-fab__label,
+  .wa-fab:focus-visible .wa-fab__label {
+    max-width: 160px;
+    padding: 0.7rem 1.1rem;
+    opacity: 1;
+  }
+
+  .wa-fab:hover .wa-fab__circulo {
+    transform: scale(1.08);
+    box-shadow: 0 10px 26px rgba(0, 0, 0, 0.4);
+  }
+
+  .wa-fab:hover .wa-fab__circulo::before {
+    animation-play-state: paused;
+  }
+}
+
+.wa-fab:active .wa-fab__circulo {
+  transform: scale(0.94);
+}
+
+.wa-fab:focus-visible {
+  outline: none;
+}
+
+.wa-fab:focus-visible .wa-fab__circulo {
+  outline: 3px solid var(--amarillo);
+  outline-offset: 3px;
+}
+
+/* ---------- Celulares pequeños ---------- */
+@media (max-width: 480px) {
+  .wa-fab {
+    right: calc(14px + env(safe-area-inset-right, 0px));
+    bottom: calc(14px + env(safe-area-inset-bottom, 0px));
+  }
+
+  .wa-fab__circulo {
+    width: 52px;
+    height: 52px;
+  }
+
+  .wa-fab__icono {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wa-fab {
+    transition: opacity 0.2s ease, visibility 0.2s;
+    transform: none;
+  }
+
+  .wa-fab__circulo::before {
+    animation: none;
+    opacity: 0;
+  }
+}
