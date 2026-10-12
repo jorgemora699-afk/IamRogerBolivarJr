@@ -1,7 +1,6 @@
 import { useState } from "react";
 import ReservaModal from "./components/ReservaModal";
 import trainerConfig from "./config/trainerConfig";
-import PlanCard from "./components/PlanCard";
 import ProductoCard from "./components/ProductoCard";
 import "./styles.css";
 import "./base.css"; // siempre después de styles.css
@@ -11,6 +10,7 @@ import TestimonioFotos from "./components/TestimonioFotos";
 import WhatsAppFlotante from "./components/WhatsAppFlotante";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
+import Planes from "./components/Planes";
 
 function scrollToSection(id) {
   document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -34,16 +34,7 @@ function App() {
       <Header onNavigate={scrollToSection} />
       <Hero onNavigate={scrollToSection} />
 
-      {/* Planes */}
-      <section id="planes" className="planes-seccion">
-        <p className="seccion-eyebrow">— PLANES</p>
-        <h2 className="seccion-titulo">Elige tu plan</h2>
-        <div className="planes">
-          {trainerConfig.planes.map((plan, i) => (
-            <PlanCard key={plan.id} plan={plan} index={i} onElegir={setPlanSeleccionado} />
-          ))}
-        </div>
-      </section>
+      <Planes onElegir={setPlanSeleccionado} />
 
       {/* Productos */}
       <section id="productos" className="productos-seccion">

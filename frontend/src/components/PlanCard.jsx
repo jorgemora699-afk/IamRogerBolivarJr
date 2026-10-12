@@ -8,32 +8,42 @@ function PlanCard({ plan, onElegir, index = 0 }) {
   return (
     <div
       ref={ref}
-      className={`plan-card ${plan.destacado ? "plan-card--destacado" : ""} ${
-        plan.color ? `plan-card--${plan.color}` : ""
-      } reveal ${visible ? "reveal--visible" : ""}`}
+      className={`plan-wrap ${plan.destacado ? "plan-wrap--destacado" : ""} reveal ${
+        visible ? "reveal--visible" : ""
+      }`}
       style={{ transitionDelay: `${index * 0.12}s` }}
     >
-      {plan.destacado && <span className="plan-card__badge">★ Más popular</span>}
+      <article className={`plan ${plan.destacado ? "plan--destacado" : ""}`}>
+        {plan.destacado && <span className="plan__badge">★ Más popular</span>}
 
-      <p className="plan-card__nombre">{plan.nombre}</p>
-      <p className="plan-card__precio">
-        ${precioAnimado.toLocaleString("es-CO")}
-        <span className="plan-card__moneda">COP / mes</span>
-      </p>
-      <p className="plan-card__descripcion">{plan.descripcion}</p>
+        <h3 className="plan__nombre">{plan.nombre}</h3>
+        <p className="plan__tag">{plan.descripcion}</p>
 
-      <ul className="plan-card__lista">
-        {plan.incluye.map((item, i) => (
-          <li key={i} className="plan-card__item">
-            <span className="plan-card__check">✓</span>
-            {item}
-          </li>
-        ))}
-      </ul>
+        <p className="plan__precio">
+          ${precioAnimado.toLocaleString("es-CO")}
+          <span className="plan__moneda">COP / mes</span>
+        </p>
 
-      <button className="plan-card__boton" onClick={() => onElegir(plan)}>
-        Elegir este plan
-      </button>
+        <ul className="plan__lista">
+          {plan.incluye.map((item, i) => (
+            <li key={i} className="plan__item">
+              <span className="plan__check" aria-hidden="true">
+                ✓
+              </span>
+              {item}
+            </li>
+          ))}
+        </ul>
+
+        <button
+          className={`btn plan__boton ${
+            plan.destacado ? "btn--amarillo" : "btn--borde"
+          }`}
+          onClick={() => onElegir(plan)}
+        >
+          Elegir este plan
+        </button>
+      </article>
     </div>
   );
 }

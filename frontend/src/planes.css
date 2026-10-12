@@ -1,0 +1,272 @@
+/* =========================================================
+   planes.css — PASO 2: sección Planes
+   Móvil: 1 columna · ≥900px: 3 columnas
+   Usa los tokens de base.css (--negro, --amarillo, --gris-300…)
+   ========================================================= */
+
+.planes {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: clamp(4rem, 9vw, 7rem) var(--gutter);
+  background: var(--negro);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Franja diagonal tenue y resplandor amarillo, como el hero */
+.planes::before,
+.planes::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.planes::before {
+  top: -15%;
+  right: -8%;
+  width: 30%;
+  height: 130%;
+  background: rgba(255, 255, 255, 0.025);
+  transform: skewX(-10deg);
+}
+
+.planes::after {
+  inset: 0;
+  background: radial-gradient(
+    ellipse 50% 45% at 50% 62%,
+    rgba(255, 210, 31, 0.07),
+    transparent 70%
+  );
+}
+
+.planes__inner {
+  width: 100%;
+  max-width: var(--maxw);
+  margin-inline: auto;
+}
+
+/* ---------- Cabecera ---------- */
+.planes__cabecera {
+  max-width: 640px;
+  margin-bottom: clamp(2.5rem, 5vw, 3.5rem);
+}
+
+.planes__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  font-family: var(--font-body);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gris-300);
+}
+
+.planes__eyebrow::before {
+  content: "";
+  width: 30px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--amarillo);
+}
+
+.planes__titulo {
+  font-family: var(--font-display);
+  font-weight: 800;
+  text-transform: uppercase;
+  line-height: 0.95;
+  font-size: clamp(2.6rem, 7vw, 4.6rem);
+  color: var(--blanco);
+  margin-bottom: 1.25rem;
+}
+
+.planes__titulo-acento {
+  display: block;
+  color: var(--amarillo);
+}
+
+.planes__texto {
+  max-width: 52ch;
+  font-size: clamp(0.96rem, 1.4vw, 1.08rem);
+  line-height: 1.6;
+  color: var(--gris-300);
+}
+
+/* ---------- Grilla ---------- */
+.planes__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  max-width: 620px;
+  margin-inline: auto;
+}
+
+.plan-wrap {
+  display: flex;
+}
+
+/* ---------- Tarjeta ---------- */
+.plan {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 2.25rem 1.75rem 1.75rem;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: linear-gradient(160deg, #18181b 0%, #101012 100%);
+  transition: translate 0.3s ease, border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.plan--destacado {
+  border-color: var(--amarillo);
+  background: linear-gradient(160deg, #1f1d12 0%, #111112 70%);
+  box-shadow: 0 0 0 1px rgba(255, 210, 31, 0.3),
+    0 24px 60px rgba(255, 210, 31, 0.1);
+}
+
+.plan__badge {
+  position: absolute;
+  top: -0.85rem;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  background: var(--amarillo);
+  color: var(--negro);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  box-shadow: 0 6px 18px rgba(255, 210, 31, 0.35);
+}
+
+.plan__nombre {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.9rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  line-height: 1;
+  color: var(--blanco);
+}
+
+.plan--destacado .plan__nombre {
+  color: var(--amarillo);
+}
+
+.plan__tag {
+  margin-top: 0.45rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gris-300);
+}
+
+.plan__precio {
+  margin-top: 1.5rem;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(2.8rem, 6vw, 3.4rem);
+  line-height: 1;
+  color: var(--blanco);
+}
+
+.plan__moneda {
+  margin-left: 0.5rem;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--gris-300);
+}
+
+.plan__lista {
+  list-style: none;
+  flex: 1;
+  margin: 1.5rem 0 2rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.plan__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  padding: 0.7rem 0;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.12);
+  font-size: 0.92rem;
+  line-height: 1.4;
+  color: #e6e6e8;
+}
+
+.plan__item:last-child {
+  border-bottom: 0;
+}
+
+.plan__check {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  margin-top: 0.05rem;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(255, 210, 31, 0.15);
+  color: var(--amarillo);
+  font-size: 0.7rem;
+  font-weight: 800;
+}
+
+.plan__boton {
+  width: 100%;
+}
+
+@media (hover: hover) {
+  .plan:hover {
+    translate: 0 -6px;
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+
+  .plan--destacado:hover {
+    border-color: var(--amarillo);
+    box-shadow: 0 0 0 1px rgba(255, 210, 31, 0.5),
+      0 30px 70px rgba(255, 210, 31, 0.18);
+  }
+}
+
+/* ---------- Escritorio ---------- */
+@media (min-width: 900px) {
+  .planes__grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.75rem;
+    max-width: none;
+    margin-inline: 0;
+  }
+
+  .plan {
+    padding: 2.5rem 2rem 2rem;
+  }
+
+  /* El plan destacado se ve un poco más grande */
+  .plan-wrap--destacado {
+    --reveal-scale: 1.04;
+    position: relative;
+    z-index: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .plan {
+    transition: none;
+  }
+  .plan:hover {
+    translate: none;
+  }
+}

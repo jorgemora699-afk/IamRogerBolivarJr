@@ -626,37 +626,3 @@ body,
   background: var(--negro);
 }
 
-/* Foto a todo el ancho, con el texto encima */
-@media (min-width: 900px) {
-  .hero__media {
-    inset: 0;
-    width: 100%;
-    display: block;
-    opacity: 1;
-    -webkit-mask-image: none;
-    mask-image: none;
-  }
-
-  .hero__img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    /* punto que nunca se recorta: derecha y parte alta (donde está Roger) */
-    object-position: 75% 15%;
-    -webkit-mask-image: none;
-    mask-image: none;
-  }
-
-  /* oscurece solo el lado izquierdo para que el texto se lea */
-  .hero__media::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      90deg,
-      rgba(11, 11, 12, 0.92) 0%,
-      rgba(11, 11, 12, 0.7) 32%,
-      rgba(11, 11, 12, 0) 65%
-    );
-  }
-}
