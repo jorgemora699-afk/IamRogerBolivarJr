@@ -34,13 +34,13 @@ function App() {
       <Header onNavigate={scrollToSection} />
       <Hero onNavigate={scrollToSection} />
 
-      <SobreMi />
-
       <Planes onElegir={setPlanSeleccionado} />
 
       <Suplementos onCategoria={setCategoriaSeleccionada} />
 
       <Testimonios />
+
+      <SobreMi />
 
       {/* Contacto */}
       <section id="contacto" className="contacto-seccion">
