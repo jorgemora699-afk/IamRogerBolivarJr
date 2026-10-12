@@ -6,15 +6,40 @@ const trainerConfig = {
   whatsapp: "573026036066",
   appStoreUrl: "https://apps.apple.com/app/fittrack-app/id6783998522",
 
-  logoUrl: "/images/home/logo1.png",
+  logoUrl: "public/images/home/logo1.png",
 
+  // Paleta: negro, gris, blanco y amarillo.
+  // (primario/secundario/fondo/texto se mantienen porque las secciones
+  // que aún no rediseñamos los siguen usando)
   colores: {
     primario: "#0D0D0D",
     secundario: "#4A4A4A",
     fondo: "#F5F5F5",
     texto: "#141414",
+    acento: "#FFD21F",
+    grisClaro: "#B8B8BD",
   },
 
+  // Contenido del hero (pantalla principal)
+  hero: {
+    etiqueta: "Entrenamiento · Nutrición · Resultados",
+    lineas: ["Tu mejor", "versión"],
+    destacada: "Empieza aquí",
+    descripcion:
+      "Te ayudo a alcanzar tus objetivos con planes personalizados de entrenamiento, nutrición y suplementación, para que logres un cuerpo más fuerte, saludable y una mejor versión de ti.",
+    imagen: "/images/home/roger-hero.png",
+    botonPrincipal: "Hablar por WhatsApp",
+    botonSecundario: "Conoce mis paquetes",
+    mensajeWhatsapp: "Hola, quiero información sobre tus planes",
+    beneficios: [
+      { icono: "energia", texto: "Más energía" },
+      { icono: "rendimiento", texto: "Mejor rendimiento" },
+      { icono: "salud", texto: "Cuerpo saludable" },
+      { icono: "resultados", texto: "Resultados reales" },
+    ],
+  },
+
+  // Ya no se usa en el hero nuevo; se puede borrar más adelante
   home: {
     titulo: "¿QUÉ DESEAS VER?",
     tarjetas: [
