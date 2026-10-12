@@ -9,7 +9,7 @@
   isolation: isolate;
   overflow: hidden;
   padding: clamp(4rem, 9vw, 7rem) var(--gutter);
-  background: var(--amarillo);
+  background: #e9e9ec;
   color: var(--negro);
 }
 
@@ -19,10 +19,10 @@
   position: absolute;
   z-index: -1;
   top: -10%;
-  left: -8%;
+  right: -8%;
   width: 30%;
   height: 120%;
-  background: rgba(13, 13, 13, 0.06);
+  background: rgba(13, 13, 13, 0.04);
   transform: skewX(-10deg);
   pointer-events: none;
 }
@@ -48,7 +48,7 @@
   font-weight: 700;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--negro);
+  color: #4a4a4f;
 }
 
 .contacto__eyebrow::before {
@@ -56,7 +56,7 @@
   width: 30px;
   height: 3px;
   border-radius: 2px;
-  background: var(--negro);
+  background: var(--amarillo);
 }
 
 .contacto__titulo {
@@ -72,10 +72,8 @@
 .contacto__titulo-acento {
   display: block;
   width: fit-content;
-  margin-top: 0.12em;
-  padding: 0.02em 0.22em 0.06em;
-  background: var(--negro);
-  color: var(--amarillo);
+  color: var(--negro);
+  box-shadow: inset 0 -0.32em 0 var(--amarillo);
 }
 
 .contacto__descripcion {
@@ -83,7 +81,7 @@
   margin-top: 1.4rem;
   font-size: clamp(1rem, 1.5vw, 1.12rem);
   line-height: 1.6;
-  color: rgba(13, 13, 13, 0.82);
+  color: #3a3a3f;
 }
 
 /* ---------- Tarjetas ---------- */
@@ -113,8 +111,9 @@
 }
 
 .contacto__card--app {
-  background: rgba(255, 255, 255, 0.5);
+  background: #ffffff;
   color: var(--negro);
+  border-color: rgba(13, 13, 13, 0.12);
 }
 
 .contacto__card-icono {
@@ -181,7 +180,7 @@
 @media (hover: hover) {
   .contacto__card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 16px 36px rgba(13, 13, 13, 0.25);
+    box-shadow: 0 16px 36px rgba(13, 13, 13, 0.16);
   }
 
   .contacto__card--app:hover {
