@@ -9,7 +9,7 @@
   isolation: isolate;
   overflow: hidden;
   padding: clamp(4rem, 9vw, 7rem) var(--gutter);
-  background: #f5f5f5;
+  background: #e9e9ec; /* gris claro: se separa del blanco de las tarjetas */
 }
 
 /* Franja diagonal muy tenue, igual que en Planes */
@@ -21,7 +21,7 @@
   right: -8%;
   width: 30%;
   height: 120%;
-  background: rgba(13, 13, 13, 0.035);
+  background: rgba(13, 13, 13, 0.04);
   transform: skewX(-10deg);
   pointer-events: none;
 }
