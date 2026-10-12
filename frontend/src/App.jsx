@@ -11,6 +11,7 @@ import SobreMi from "./components/Sobremi";
 import Planes from "./components/Planes";
 import Suplementos from "./components/Suplementos";
 import Testimonios from "./components/Testimonios";
+import Contacto from "./components/Contacto";
 
 function scrollToSection(id) {
   document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -42,32 +43,7 @@ function App() {
 
       <SobreMi />
 
-      {/* Contacto */}
-      <section id="contacto" className="contacto-seccion">
-        <p className="contacto-eyebrow">— CONTACTO</p>
-        <h2 className="contacto-titulo">¿Listo para empezar tu cambio?</h2>
-        <p className="contacto-texto">
-          Elige tu plan, cuéntame tus objetivos y hablamos directo por WhatsApp.
-        </p>
-
-        <a
-          className="contacto-boton contacto-boton--whatsapp"
-          href={`https://wa.me/${trainerConfig.whatsapp}`}
-          target="_blank"
-          rel="noreferrer"
-        >
-          Escríbeme por WhatsApp
-        </a>
-
-        <a
-          className="contacto-boton contacto-boton--app"
-          href={trainerConfig.appStoreUrl}
-          target="_blank"
-          rel="noreferrer"
-        >
-          Descarga la App
-        </a>
-      </section>
+      <Contacto />
 
       {planSeleccionado && (
         <ReservaModal plan={planSeleccionado} onClose={() => setPlanSeleccionado(null)} />
