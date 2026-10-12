@@ -34,12 +34,6 @@ const ICONOS = {
   ),
 };
 
-const IconoChat = (
-  <svg {...svgProps}>
-    <path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 20.5l1.7-5.4A8.4 8.4 0 1 1 21 11.5z" />
-  </svg>
-);
-
 const IconoCalendario = (
   <svg {...svgProps}>
     <rect x="3.5" y="5" width="17" height="15.5" rx="2.5" />
@@ -48,12 +42,9 @@ const IconoCalendario = (
 );
 
 function Hero({ onNavigate }) {
-  const { hero, whatsapp } = trainerConfig;
+  const { hero } = trainerConfig;
   const [imgError, setImgError] = useState(false);
 
-  const waUrl = `https://wa.me/${whatsapp}?text=${encodeURIComponent(
-    hero.mensajeWhatsapp
-  )}`;
   const n = hero.lineas.length;
 
   return (
@@ -95,10 +86,6 @@ function Hero({ onNavigate }) {
           </p>
 
           <div className="hero__acciones rise" style={{ "--i": n + 3 }}>
-            <a className="btn btn--amarillo" href={waUrl} target="_blank" rel="noreferrer">
-              {IconoChat}
-              {hero.botonPrincipal}
-            </a>
             <button className="btn btn--borde" onClick={() => onNavigate("planes")}>
               {IconoCalendario}
               {hero.botonSecundario}

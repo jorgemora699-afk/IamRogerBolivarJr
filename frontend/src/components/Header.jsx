@@ -37,8 +37,6 @@ function Header({ onNavigate }) {
     onNavigate(id);
   };
 
-  const waUrl = `https://wa.me/${trainerConfig.whatsapp}`;
-
   return (
     <header
       className={`site-header ${solido ? "site-header--solido" : ""} ${
@@ -59,15 +57,6 @@ function Header({ onNavigate }) {
             </button>
           ))}
         </nav>
-
-        <a
-          className="btn btn--amarillo btn--sm site-header__cta"
-          href={waUrl}
-          target="_blank"
-          rel="noreferrer"
-        >
-          WhatsApp
-        </a>
 
         <button
           className={`nav-toggle ${abierto ? "nav-toggle--activo" : ""}`}
@@ -90,14 +79,6 @@ function Header({ onNavigate }) {
             {l.label}
           </button>
         ))}
-        <a
-          className="btn btn--amarillo nav-mobile__cta"
-          href={waUrl}
-          target="_blank"
-          rel="noreferrer"
-        >
-          Hablar por WhatsApp
-        </a>
       </nav>
     </header>
   );

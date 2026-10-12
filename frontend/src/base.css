@@ -182,10 +182,6 @@ section[id] {
   display: none;
 }
 
-.site-header__cta {
-  display: none;
-}
-
 @media (min-width: 900px) {
   .site-nav {
     display: flex;
@@ -194,25 +190,25 @@ section[id] {
     margin-left: auto;
   }
 
-  .site-header__cta {
-    display: inline-flex;
-  }
-
   .nav-toggle,
   .nav-mobile {
     display: none !important;
   }
 }
 
-/* Móvil (< 768px): solo el logo, centrado. Sin menú hamburguesa. */
+/* Móvil (< 768px): logo centrado y botón de menú a la derecha */
 @media (max-width: 767px) {
   .site-header__inner {
+    position: relative;
     justify-content: center;
   }
 
-  .nav-toggle,
-  .nav-mobile {
-    display: none !important;
+  .nav-toggle {
+    position: absolute;
+    right: var(--gutter);
+    top: 50%;
+    margin-left: 0;
+    transform: translateY(-50%);
   }
 }
 
@@ -253,7 +249,7 @@ section[id] {
   }
 }
 
-/* Botón hamburguesa (solo tablet: 768px a 899px) */
+/* Botón hamburguesa (móvil y tablet: menos de 900px) */
 .nav-toggle {
   margin-left: auto;
   width: 44px;
@@ -287,7 +283,7 @@ section[id] {
   transform: translateY(-6.5px) rotate(-45deg);
 }
 
-/* Menú tablet */
+/* Menú desplegable (móvil y tablet) */
 .nav-mobile {
   position: fixed;
   top: var(--header-h);
