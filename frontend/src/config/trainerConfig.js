@@ -6,7 +6,7 @@ const trainerConfig = {
   whatsapp: "573026036066",
   appStoreUrl: "https://apps.apple.com/app/fittrack-app/id6783998522",
 
-  logoUrl: "public/images/home/logo1.png",
+  logoUrl: "/images/home/logo1.png",
 
   // Paleta: negro, gris, blanco y amarillo.
   // (primario/secundario/fondo/texto se mantienen porque las secciones
