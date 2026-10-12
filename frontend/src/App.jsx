@@ -7,7 +7,7 @@ import SuplementoConfirmModal from "./components/SuplementoConfirmModal";
 import WhatsAppFlotante from "./components/WhatsAppFlotante";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
-import SobreMi from "./components/SobreMi";
+import SobreMi from "./components/Sobremi";
 import Planes from "./components/Planes";
 import Suplementos from "./components/Suplementos";
 import Testimonios from "./components/Testimonios";
