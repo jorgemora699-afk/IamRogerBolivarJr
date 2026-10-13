@@ -83,23 +83,12 @@
 }
 
 .supls__titulo-acento {
-  position: relative;
-  display: block;          /* la palabra queda en su propia línea */
-  width: fit-content;      /* el subrayado mide lo mismo que la palabra */
-  color: var(--blanco);    /* blanco, ya no amarillo */
-  padding-bottom: 0.15em;
+  display: block;
+  width: fit-content;
+  color: var(--blanco);
+  box-shadow: inset 0 -0.32em 0 var(--amarillo);
 }
 
-.supls__titulo-acento::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 4px;
-  border-radius: 2px;
-  background: var(--amarillo);
-}
 
 .supls__texto {
   max-width: 52ch;
